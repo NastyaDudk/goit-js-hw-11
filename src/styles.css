@@ -54,7 +54,7 @@ img {
 .gallery {
   flex-shrink: 0;
   border: 1px solid #808080;
-  margin: 24px;
+  margin: 15px;
 }
 
 .gallery-el {
