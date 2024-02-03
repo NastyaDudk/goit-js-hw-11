@@ -31,18 +31,18 @@
   margin: 8px;
 }
 
+.form {
+  text-align: center;
+}
+
 .gallery {
-  width: 360px;
-  height: 200px;
   flex-shrink: 0;
   border: 1px solid #808080;
+  margin: 10px;
+}
+
+.gallery-el {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.gallery .image {
-  width: calc(33.33% - 10px);
-  margin-bottom: 20px;
-  margin-right: 10px;
 }
