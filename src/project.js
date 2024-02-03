@@ -5,7 +5,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const formElem = document.querySelector(".form");
-  const galleryEl = document.querySelector(".gallery-el");
+  const galleryEl = document.querySelector(".gallery");
   const loaderElem = document.querySelector(".loader");
 
   hideLoader();
