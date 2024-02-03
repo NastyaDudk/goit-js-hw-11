@@ -3,6 +3,16 @@
   font-style: normal;
 }
 
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+  gap: 10px;
+  color: #2e2f42;
+  text-decoration: none;
+}
+
 .input {
   padding-left: 16px;
   width: 272px;
@@ -49,14 +59,4 @@
 
 .loader {
   text-align: center;
-}
-
-.info-cards-container {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 10px;
-  gap: 10px;
-  color: #2e2f42;
-  text-decoration: none;
 }
