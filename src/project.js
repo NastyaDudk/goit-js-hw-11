@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     showLoader();
 
-    const value = formElem.elements.searchQuery.value;
+    const value = formElem.querySelector(".input").value;
     getPhotoBySearch(value)
       .then((data) => renderImages(data.hits))
       .catch((error) => renderError(error));
