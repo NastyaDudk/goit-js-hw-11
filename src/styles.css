@@ -13,6 +13,10 @@ ul {
   text-decoration: none;
 }
 
+img {
+  width: 500px;
+}
+
 .input {
   padding-left: 16px;
   width: 272px;
@@ -49,7 +53,7 @@ ul {
 .gallery {
   flex-shrink: 0;
   border: 1px solid #808080;
-  margin: 10px;
+  margin: 24px;
 }
 
 .gallery-el {
