@@ -17,7 +17,6 @@
 }
 
 .container {
-  padding: 20px 30px;
 }
 
 .button {
@@ -30,4 +29,11 @@
   color: #fff;
   cursor: pointer;
   margin: 8px;
+}
+
+.gallery {
+  width: 360px;
+  height: 200px;
+  flex-shrink: 0;
+  border: 1px solid #808080;
 }
