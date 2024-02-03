@@ -1,14 +1,14 @@
-import{S as m,i as p}from"./assets/vendor-46aac873.js";(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function i(e){if(e.ep)return;e.ep=!0;const t=s(e);fetch(e.href,t)}})();const l=document.querySelector(".form"),a=document.querySelector(".gallery-el"),c=document.querySelector(".loader");u();const h=new m(".gallery a",{captionDelay:250});l.addEventListener("submit",y);function y(r){r.preventDefault(),$();const n=l.elements.searchQuery.value;g(n).then(s=>b(s.hits)).catch(s=>L(s)),l.reset()}function g(r){const n="https://pixabay.com/api/",i=`?key=42153847-0f7baac2d7b2e92d7ce6bbe8e&q=${r}`,e="&image_type=photo&orientation=horizontal&safesearch=true&per_page=20",t=n+i+e;return fetch(t).then(o=>o.json()).then(o=>{if(o.total===0)throw new Error("No images found");return o})}function b(r){const n=r.map(({largeImageURL:s,webformatURL:i,tags:e,likes:t,views:o,comments:d,downloads:f})=>`
-      <div class="gallery">
-        <a href="${s}">
-          <img src="${i}" alt="${e}" title="${e}" width="360" height="300" />
-          <ul class="info-cards-container">
-            <li class="info-cards-elements">likes<span>${t}</span></li>
-            <li class="info-cards-elements">views<span>${o}</span></li>
-            <li class="info-cards-elements">comments<span>${d}</span></li>
-            <li class="info-cards-elements">downloads<span>${f}</span></li>
-          </ul>
-        </a>
-      </div>
-    `).join("");a.innerHTML=n,u(),h.refresh()}function L(r){a.innerHTML="",p.show({message:`❌ "${r.message}. Please try again!`,color:"red",position:"topRight",maxWidth:"400px"})}function $(){c.style.display="block"}function u(){c.style.display="none"}
+import{S as b,i as E}from"./assets/vendor-46aac873.js";(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&d(i)}).observe(document,{childList:!0,subtree:!0});function c(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function d(e){if(e.ep)return;e.ep=!0;const t=c(e);fetch(e.href,t)}})();document.addEventListener("DOMContentLoaded",()=>{const a=document.querySelector(".form"),n=document.querySelector(".gallery-el"),c=document.querySelector(".loader");p();const d=new b(".gallery a",{captionDelay:250});a.addEventListener("submit",e);function e(o){o.preventDefault(),y();const l=a.elements.searchQuery.value;t(l).then(r=>i(r.hits)).catch(r=>h(r)),a.reset()}function t(o){const l="https://pixabay.com/api/",f=`?key=42153847-0f7baac2d7b2e92d7ce6bbe8e&q=${o}`,u="&image_type=photo&orientation=horizontal&safesearch=true&per_page=20",m=l+f+u;return fetch(m).then(s=>s.json()).then(s=>{if(s.total===0)throw new Error("No images found");return s})}function i(o){const l=o.map(({largeImageURL:r,webformatURL:f,tags:u,likes:m,views:s,comments:g,downloads:L})=>`
+        <div class="gallery">
+          <a href="${r}">
+            <img src="${f}" alt="${u}" title="${u}" width="360" height="300" />
+            <ul class="info-cards-container">
+              <li class="info-cards-elements">likes<span>${m}</span></li>
+              <li class="info-cards-elements">views<span>${s}</span></li>
+              <li class="info-cards-elements">comments<span>${g}</span></li>
+              <li class="info-cards-elements">downloads<span>${L}</span></li>
+            </ul>
+          </a>
+        </div>
+      `).join("");n.innerHTML=l,p(),d.refresh()}function h(o){n.innerHTML="",E.show({message:`❌ "${o.message}". Please try again!`,color:"red",position:"topRight",maxWidth:"400px"})}function y(){c.style.display="block"}function p(){c.style.display="none"}});
 //# sourceMappingURL=commonHelpers.js.map
