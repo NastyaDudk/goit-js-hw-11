@@ -18,14 +18,15 @@ a {
 
 img {
   width: 450px;
-  margin: 8px;
 }
 
 li {
   display: flex;
   flex-direction: column;
-  margin-right: 50px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-transform: capitalize;
+  gap: 5px;
 }
 
 .input {
