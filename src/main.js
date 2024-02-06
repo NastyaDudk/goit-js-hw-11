@@ -22,9 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const value = formElem.querySelector('.input').value;
     getPhotoBySearch(value)
-      .then(data => renderImages(data.hits))
-      .catch(error => renderError(error))
-      .finally(() => {
+      .then(data => {
+        renderImages(data.hits);
+        hideLoader();
+      })
+      .catch(error => {
+        renderError(error);
         hideLoader();
       });
 
