@@ -1,46 +1,49 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const formElem = document.querySelector(".form");
-  const galleryEl = document.querySelector(".gallery-el");
-  const loaderElem = document.querySelector(".loader");
+document.addEventListener('DOMContentLoaded', () => {
+  const formElem = document.querySelector('.form');
+  const galleryEl = document.querySelector('.gallery-el');
+  const loaderElem = document.querySelector('.loader');
 
   hideLoader();
 
-  const lightbox = new SimpleLightbox(".gallery a", {
+  const lightbox = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
   });
 
-  formElem.addEventListener("submit", onSubmit);
+  formElem.addEventListener('submit', onSubmit);
 
   function onSubmit(e) {
     e.preventDefault();
     showLoader();
 
-    const value = formElem.querySelector(".input").value;
+    const value = formElem.querySelector('.input').value;
     getPhotoBySearch(value)
-      .then((data) => renderImages(data.hits))
-      .catch((error) => renderError(error));
+      .then(data => renderImages(data.hits))
+      .catch(error => renderError(error))
+      .finally(() => {
+        hideLoader();
+      });
 
     formElem.reset();
   }
 
   function getPhotoBySearch(searchValue) {
-    const BASE_URL = "https://pixabay.com/api/";
-    const KEY = "42153847-0f7baac2d7b2e92d7ce6bbe8e";
+    const BASE_URL = 'https://pixabay.com/api/';
+    const KEY = '42153847-0f7baac2d7b2e92d7ce6bbe8e';
     const Query = `?key=${KEY}&q=${searchValue}`;
     const params =
-      "&image_type=photo&orientation=horizontal&safesearch=true&per_page=20";
+      '&image_type=photo&orientation=horizontal&safesearch=true&per_page=20';
     const url = BASE_URL + Query + params;
 
     return fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.total === 0) {
-          throw new Error("No images found");
+          throw new Error('No images found');
         }
         return data;
       });
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
         }
       )
-      .join("");
+      .join('');
 
     galleryEl.innerHTML = markup;
     hideLoader();
@@ -81,20 +84,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderError(error) {
-    galleryEl.innerHTML = "";
+    galleryEl.innerHTML = '';
     iziToast.show({
       message: `❌ "${error.message}". Please try again!`,
-      color: "red",
-      position: "topRight",
-      maxWidth: "400px",
+      color: 'red',
+      position: 'topRight',
+      maxWidth: '400px',
     });
   }
 
   function showLoader() {
-    loaderElem.style.display = "block";
+    loaderElem.style.display = 'block';
   }
 
   function hideLoader() {
-    loaderElem.style.display = "none";
+    loaderElem.style.display = 'none';
   }
 });
