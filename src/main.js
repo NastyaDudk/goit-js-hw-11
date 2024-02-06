@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     getPhotoBySearch(value)
       .then(data => {
         renderImages(data.hits);
-        hideLoader();
       })
       .catch(error => {
         renderError(error);
+      })
+      .finally(() => {
         hideLoader();
       });
 
@@ -82,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .join('');
 
     galleryEl.innerHTML = markup;
-    hideLoader();
     lightbox.refresh();
   }
 
